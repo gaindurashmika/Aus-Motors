@@ -10,14 +10,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop" />
     <meta property="og:url" content="/" />
-    <link rel="icon" href="../assets/favicon.ico" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚗</text></svg>" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "AutoDealer",
       "name": "Aus Motors",
       "telephone": "+61 9999 12345",
-      "url": "https://ausmotors.example",
+      "url": "http://localhost:3000",
       "address": {"@type":"PostalAddress","addressCountry":"AU"}
     }
     </script>
@@ -38,13 +38,13 @@
         </div>
       </div>
       <div class="container header-inner">
-        <a class="brand" href="#">
+        <a class="brand" href="/">
           <span class="brand__logo"></span>
           <span class="brand__name">Aus Motors</span>
         </a>
         <nav class="nav" id="primaryNav">
           <a href="#home">Home</a>
-          <a href="#inventory">Inventory</a>
+          <a href="inventory.html">Inventory</a>
           <a href="#finance">Finance</a>
           <a href="#blog">Blog</a>
           <a href="#contact">Contact</a>
@@ -57,25 +57,33 @@
 
     <main>
       <section class="hero" id="home">
+        <div class="hero__background">
+          <div class="hero__overlay"></div>
+        </div>
         <div class="container hero__content">
-          <h1 class="hero__title">Find Your Ideal Vehicle</h1>
-          <form class="search-bar" id="searchForm">
-            <select id="conditionFilter">
-              <option value="">All</option>
-              <option value="new">New</option>
-              <option value="used">Used</option>
-            </select>
-            <select id="makeFilter">
-              <option value="">Any make</option>
-            </select>
-            <select id="modelFilter">
-              <option value="">Any model</option>
-            </select>
-            <select id="priceFilter">
-              <option value="">All prices</option>
-            </select>
-            <button class="btn btn--primary" type="submit">Search</button>
-          </form>
+          <div class="hero__text">
+            <h1 class="hero__title">Find Your Ideal Vehicle</h1>
+            <h2 class="hero__subtitle">Discover your perfect car with Aus Motors</h2>
+            <p class="hero__description">Premium vehicles, competitive prices, and exceptional service</p>
+            <div class="hero__buttons">
+              <a href="inventory.html" class="btn btn--primary btn--large">Browse Vehicles</a>
+              <a href="#contact" class="btn btn--secondary btn--large">Contact Us</a>
+            </div>
+          </div>
+          <div class="hero__stats">
+            <div class="stat">
+              <span class="stat__number">500+</span>
+              <span class="stat__label">Vehicles</span>
+            </div>
+            <div class="stat">
+              <span class="stat__number">1000+</span>
+              <span class="stat__label">Happy Customers</span>
+            </div>
+            <div class="stat">
+              <span class="stat__number">15+</span>
+              <span class="stat__label">Years Experience</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -86,22 +94,22 @@
             <div class="category">
               <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=800&auto=format&fit=crop" alt="Sedan" />
               <h3>Sedan</h3>
-              <a href="#inventory" class="link">All cars</a>
+              <a href="/inventory" class="link">All cars</a>
             </div>
             <div class="category">
               <img src="https://images.unsplash.com/photo-1493238792000-8113da705763?q=80&w=800&auto=format&fit=crop" alt="SUV" />
               <h3>SUV</h3>
-              <a href="#inventory" class="link">All cars</a>
+              <a href="/inventory" class="link">All cars</a>
             </div>
             <div class="category">
               <img src="https://images.unsplash.com/photo-1549921296-3b4a6b7b1a4b?q=80&w=800&auto=format&fit=crop" alt="Sport" />
               <h3>Sport</h3>
-              <a href="#inventory" class="link">All cars</a>
+              <a href="/inventory" class="link">All cars</a>
             </div>
             <div class="category">
               <img src="https://images.unsplash.com/photo-1519638399535-1b036603ac77?q=80&w=800&auto=format&fit=crop" alt="Van" />
               <h3>Van</h3>
-              <a href="#inventory" class="link">All cars</a>
+              <a href="/inventory" class="link">All cars</a>
             </div>
           </div>
         </div>
@@ -120,7 +128,7 @@
               <li>Fast transactions</li>
               <li>Secure deals</li>
             </ul>
-            <a class="btn btn--secondary" href="#inventory">Continue Reading</a>
+            <a class="btn btn--secondary" href="/inventory">Continue Reading</a>
           </div>
         </div>
       </section>
@@ -148,46 +156,7 @@
         </div>
       </section>
 
-      <section class="section" id="inventory">
-        <div class="container">
-          <div class="section__header">
-            <h2 class="section__title">Latest Vehicle Listings</h2>
-            <a class="link" href="#">View all</a>
-          </div>
-          <form class="filters" id="filters">
-            <select name="condition" id="filterCondition">
-              <option value="">All</option>
-              <option value="new">New</option>
-              <option value="used">Used</option>
-            </select>
-            <select name="make" id="filterMake">
-              <option value="">Any make</option>
-            </select>
-            <select name="transmission" id="filterTransmission">
-              <option value="">Any transmission</option>
-              <option value="automatic">Automatic</option>
-              <option value="manual">Manual</option>
-            </select>
-            <select name="sort" id="filterSort">
-              <option value="recent">Sort: Recent</option>
-              <option value="price-asc">Price: Low to High</option>
-              <option value="price-desc">Price: High to Low</option>
-            </select>
-            <button class="btn btn--secondary" type="reset">Clear</button>
-          </form>
-          <div class="carousel" data-carousel>
-            <button class="carousel__nav prev" data-prev aria-label="Previous" title="Previous">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="carousel__track" data-track id="vehiclesContainer">
-              <!-- Vehicles will be dynamically loaded here -->
-            </div>
-            <button class="carousel__nav next" data-next aria-label="Next" title="Next">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </div>
-        </div>
-      </section>
+
 
       <!-- Finance Calculator -->
       <section class="section" id="finance">
