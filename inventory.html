@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Inventory - Aus Motors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .inventory-header {
+            background: linear-gradient(135deg, #0c1224 0%, #101631 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .inventory-filters {
+            background: #f8fafc;
+            padding: 30px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .filter-group label {
+            font-weight: 600;
+            color: #374151;
+            font-size: 14px;
+        }
+        
+        .filter-group select,
+        .filter-group input {
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        .filter-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-filter {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .btn-filter:hover {
+            background: #1e8b4c;
+        }
+        
+        .btn-clear {
+            background: #6b7280;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .btn-clear:hover {
+            background: #4b5563;
+        }
+        
+        .inventory-results {
+            padding: 40px 0;
+        }
+        
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .results-count {
+            font-size: 18px;
+            color: #374151;
+        }
+        
+        .sort-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .vehicles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .vehicle-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .vehicle-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .vehicle-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .vehicle-details {
+            padding: 20px;
+        }
+        
+        .vehicle-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            color: #111827;
+        }
+        
+        .vehicle-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 15px 0;
+        }
+        
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+        
+        .spec-icon {
+            width: 16px;
+            height: 16px;
+            opacity: 0.6;
+        }
+        
+        .vehicle-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #27ae60;
+            margin: 15px 0;
+        }
+        
+        .vehicle-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-view {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            text-decoration: none;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .btn-view:hover {
+            background: #1e8b4c;
+        }
+        
+        .btn-contact {
+            background: transparent;
+            color: #27ae60;
+            border: 2px solid #27ae60;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            text-decoration: none;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .btn-contact:hover {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #6b7280;
+        }
+        
+        .no-results h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #374151;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+        
+        .page-btn {
+            padding: 10px 15px;
+            border: 1px solid #d1d5db;
+            background: white;
+            color: #374151;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+        
+        .page-btn:hover {
+            background: #f3f4f6;
+        }
+        
+        .page-btn.active {
+            background: #27ae60;
+            color: white;
+            border-color: #27ae60;
+        }
+        
+        @media (max-width: 768px) {
+            .filter-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .vehicles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .results-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .vehicle-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="topbar">
+            <div class="container topbar__inner">
+                <div class="topbar__contact">
+                    <a href="tel:0771234567">Call: 0771234567</a>
+                    <span>•</span>
+                    <a href="mailto:aus@gmail.com">aus@gmail.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="container header-inner">
+            <a class="brand" href="/">
+                <span class="brand__logo">🚗</span>
+                <span class="brand__name">Aus Motors</span>
+            </a>
+            <nav class="nav" id="primaryNav">
+                <a href="index.html">Home</a>
+                <a href="inventory.html" class="active">Inventory</a>
+                <a href="/#finance">Finance</a>
+                <a href="/#blog">Blog</a>
+                <a href="/#contact">Contact</a>
+                <a href="/admin" target="_blank">Admin</a>
+            </nav>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="inventory-header">
+            <div class="container">
+                <h1>Vehicle Inventory</h1>
+                <p>Browse our complete selection of quality vehicles</p>
+            </div>
+        </section>
+
+        <section class="inventory-filters">
+            <div class="container">
+                <form id="inventoryFilters" class="filter-form">
+                    <div class="filter-grid">
+                        <div class="filter-group">
+                            <label for="filterMake">Make</label>
+                            <select id="filterMake" name="make">
+                                <option value="">All Makes</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="filterModel">Model</label>
+                            <select id="filterModel" name="model">
+                                <option value="">All Models</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="filterYear">Year</label>
+                            <select id="filterYear" name="year">
+                                <option value="">All Years</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="filterPrice">Price Range</label>
+                            <select id="filterPrice" name="price">
+                                <option value="">All Prices</option>
+                                <option value="0-25000">$0 - $25,000</option>
+                                <option value="25000-50000">$25,000 - $50,000</option>
+                                <option value="50000-100000">$50,000 - $100,000</option>
+                                <option value="100000+">$100,000+</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="filterTransmission">Transmission</label>
+                            <select id="filterTransmission" name="transmission">
+                                <option value="">All Transmissions</option>
+                                <option value="Automatic">Automatic</option>
+                                <option value="Manual">Manual</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="filterFuel">Fuel Type</label>
+                            <select id="filterFuel" name="fuel_type">
+                                <option value="">All Fuel Types</option>
+                                <option value="Petrol">Petrol</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="Electric">Electric</option>
+                                <option value="Hybrid">Hybrid</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="filterMileage">Max Mileage</label>
+                            <input type="number" id="filterMileage" name="max_mileage" placeholder="e.g., 50000">
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="filterStatus">Condition</label>
+                            <select id="filterStatus" name="status">
+                                <option value="">All Conditions</option>
+                                <option value="new">New</option>
+                                <option value="used">Used</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button type="submit" class="btn-filter">Apply Filters</button>
+                        <button type="reset" class="btn-clear">Clear All</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="inventory-results">
+            <div class="container">
+                <div class="results-header">
+                    <div class="results-count">
+                        Showing <span id="resultsCount">0</span> vehicles
+                    </div>
+                    <div class="sort-controls">
+                        <label for="sortBy">Sort by:</label>
+                        <select id="sortBy" name="sort">
+                            <option value="recent">Most Recent</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="year-desc">Year: Newest First</option>
+                            <option value="mileage-asc">Mileage: Low to High</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="vehiclesGrid" class="vehicles-grid">
+                    <!-- Vehicles will be loaded here -->
+                </div>
+                
+                <div id="noResults" class="no-results" style="display: none;">
+                    <h3>No vehicles found</h3>
+                    <p>Try adjusting your filters or browse our complete inventory</p>
+                </div>
+                
+                <div id="pagination" class="pagination">
+                    <!-- Pagination will be added here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer__grid">
+            <div>
+                <h4>Aus Motors</h4>
+                <p>Find a vehicle, ride and run.</p>
+                <p>📞 0771234567</p>
+                <p>✉️ aus@gmail.com</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="inventory.html">Inventory</a></li>
+                    <li><a href="/#finance">Finance</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact Info</h4>
+                <p>📍 Melbourne, Australia</p>
+                <p>🕒 Mon-Sat: 9:00 AM - 6:00 PM</p>
+                <p>📱 WhatsApp: +61 9999 12345</p>
+            </div>
+        </div>
+        <div class="container footer__bottom">
+            <p>© <span id="year"></span> Aus Motors. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="inventory.js"></script>
+</body>
+</html>    
