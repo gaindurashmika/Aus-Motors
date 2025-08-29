@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aus Motors - Find Your Ideal Vehicle</title>
+    <meta name="description" content="Aus Motors car dealer – find, finance and buy your next car." />
+    <meta property="og:title" content="Aus Motors - Find Your Ideal Vehicle" />
+    <meta property="og:description" content="Browse latest vehicle listings, compare and contact us on WhatsApp." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop" />
+    <meta property="og:url" content="/" />
+    <link rel="icon" href="../assets/favicon.ico" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoDealer",
+      "name": "Aus Motors",
+      "telephone": "+61 9999 12345",
+      "url": "https://ausmotors.example",
+      "address": {"@type":"PostalAddress","addressCountry":"AU"}
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="topbar">
+        <div class="container topbar__inner">
+          <div class="topbar__contact">
+            <a href="tel:0771234567">Call: 0771234567</a>
+            <span>•</span>
+            <a href="mailto:aus@gmail.com">aus@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="container header-inner">
+        <a class="brand" href="#">
+          <span class="brand__logo"></span>
+          <span class="brand__name">Aus Motors</span>
+        </a>
+        <nav class="nav" id="primaryNav">
+          <a href="#home">Home</a>
+          <a href="#inventory">Inventory</a>
+          <a href="#finance">Finance</a>
+          <a href="#blog">Blog</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero__content">
+          <h1 class="hero__title">Find Your Ideal Vehicle</h1>
+          <form class="search-bar" id="searchForm">
+            <select id="conditionFilter">
+              <option value="">All</option>
+              <option value="new">New</option>
+              <option value="used">Used</option>
+            </select>
+            <select id="makeFilter">
+              <option value="">Any make</option>
+            </select>
+            <select id="modelFilter">
+              <option value="">Any model</option>
+            </select>
+            <select id="priceFilter">
+              <option value="">All prices</option>
+            </select>
+            <button class="btn btn--primary" type="submit">Search</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="section" id="categories">
+        <div class="container">
+          <h2 class="section__title">Check out car categories</h2>
+          <div class="categories">
+            <div class="category">
+              <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=800&auto=format&fit=crop" alt="Sedan" />
+              <h3>Sedan</h3>
+              <a href="#inventory" class="link">All cars</a>
+            </div>
+            <div class="category">
+              <img src="https://images.unsplash.com/photo-1493238792000-8113da705763?q=80&w=800&auto=format&fit=crop" alt="SUV" />
+              <h3>SUV</h3>
+              <a href="#inventory" class="link">All cars</a>
+            </div>
+            <div class="category">
+              <img src="https://images.unsplash.com/photo-1549921296-3b4a6b7b1a4b?q=80&w=800&auto=format&fit=crop" alt="Sport" />
+              <h3>Sport</h3>
+              <a href="#inventory" class="link">All cars</a>
+            </div>
+            <div class="category">
+              <img src="https://images.unsplash.com/photo-1519638399535-1b036603ac77?q=80&w=800&auto=format&fit=crop" alt="Van" />
+              <h3>Van</h3>
+              <a href="#inventory" class="link">All cars</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="why">
+        <div class="container why">
+          <div class="why__media">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200&auto=format&fit=crop" alt="Car" />
+          </div>
+          <div class="why__content">
+            <h2 class="section__title">Why Choose Aus Motors?</h2>
+            <p>We connect buyers and sellers for a fast, secure, and hassle‑free car trading experience.</p>
+            <ul class="benefits">
+              <li>Smart search</li>
+              <li>Fast transactions</li>
+              <li>Secure deals</li>
+            </ul>
+            <a class="btn btn--secondary" href="#inventory">Continue Reading</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="how">
+        <div class="container">
+          <h2 class="section__title">How to Buy a Vehicle</h2>
+          <div class="steps-cards">
+            <div class="step">
+              <div class="step__num">1</div>
+              <h3>Search & Filter</h3>
+              <p>Find the right car using make, condition and price filters.</p>
+            </div>
+            <div class="step">
+              <div class="step__num">2</div>
+              <h3>Contact & Compare</h3>
+              <p>Message us for details, compare options and confirm availability.</p>
+            </div>
+            <div class="step">
+              <div class="step__num">3</div>
+              <h3>Finance & Drive</h3>
+              <p>Get fast finance approval, complete paperwork and drive away.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="inventory">
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">Latest Vehicle Listings</h2>
+            <a class="link" href="#">View all</a>
+          </div>
+          <form class="filters" id="filters">
+            <select name="condition" id="filterCondition">
+              <option value="">All</option>
+              <option value="new">New</option>
+              <option value="used">Used</option>
+            </select>
+            <select name="make" id="filterMake">
+              <option value="">Any make</option>
+            </select>
+            <select name="transmission" id="filterTransmission">
+              <option value="">Any transmission</option>
+              <option value="automatic">Automatic</option>
+              <option value="manual">Manual</option>
+            </select>
+            <select name="sort" id="filterSort">
+              <option value="recent">Sort: Recent</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+            </select>
+            <button class="btn btn--secondary" type="reset">Clear</button>
+          </form>
+          <div class="carousel" data-carousel>
+            <button class="carousel__nav prev" data-prev aria-label="Previous" title="Previous">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="carousel__track" data-track id="vehiclesContainer">
+              <!-- Vehicles will be dynamically loaded here -->
+            </div>
+            <button class="carousel__nav next" data-next aria-label="Next" title="Next">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Finance Calculator -->
+      <section class="section" id="finance">
+        <div class="container">
+          <h2 class="section__title">Finance Calculator</h2>
+          <form class="finance" id="financeForm">
+            <input type="number" name="price" placeholder="Vehicle Price ($)" min="0" required />
+            <input type="number" name="down" placeholder="Down Payment ($)" min="0" />
+            <input type="number" name="rate" placeholder="Annual Interest (%)" min="0" step="0.01" required />
+            <input type="number" name="term" placeholder="Term (months)" min="1" required />
+            <button class="btn btn--primary" type="submit">Calculate</button>
+          </form>
+          <div class="finance__result" id="financeResult" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- About / Team / Reviews / FAQ / Contact -->
+      <section class="section section--alt" id="about">
+        <div class="container">
+          <h2 class="section__title">About Aus Motors</h2>
+          <p>We are a customer‑focused dealership offering inspected vehicles, transparent pricing and fast finance support.</p>
+          <div class="grid grid--3">
+            <div class="post"><img src="https://images.unsplash.com/photo-1526726538690-5cbf956ae2fd?q=80&w=1200&auto=format&fit=crop" alt="Team" /><h3>Our Team</h3><p>Experienced advisors and technicians to guide your purchase.</p></div>
+            <div class="post"><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200&auto=format&fit=crop" alt="Workshop" /><h3>Quality Checks</h3><p>Every car is inspected and serviced before listing.</p></div>
+            <div class="post"><img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1200&auto=format&fit=crop" alt="Care" /><h3>After‑Sales Care</h3><p>Warranty options and dedicated support.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="reviews">
+        <div class="container">
+          <h2 class="section__title">Customer Reviews</h2>
+          <div class="grid">
+            <article class="card review">
+              <div class="card__body">
+                <div class="review__header">
+                  <img class="avatar" src="https://i.pravatar.cc/80?img=12" alt="Sam" />
+                  <div>
+                    <strong>Sam D.</strong>
+                    <div class="stars" aria-label="5 out of 5">
+                      <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+                    </div>
+                  </div>
+                </div>
+                <p>"Great service and smooth process. Picked up my <em>Jeep Compass</em> the same day."</p>
+              </div>
+            </article>
+            <article class="card review">
+              <div class="card__body">
+                <div class="review__header">
+                  <img class="avatar" src="https://i.pravatar.cc/80?img=32" alt="Maya" />
+                  <div>
+                    <strong>Maya K.</strong>
+                    <div class="stars" aria-label="5 out of 5">
+                      <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+                    </div>
+                  </div>
+                </div>
+                <p>"Car was exactly as described and the team helped with the paperwork."</p>
+              </div>
+            </article>
+            <article class="card review">
+              <div class="card__body">
+                <div class="review__header">
+                  <img class="avatar" src="https://i.pravatar.cc/80?img=5" alt="Lewis" />
+                  <div>
+                    <strong>Lewis R.</strong>
+                    <div class="stars" aria-label="4 out of 5">
+                      <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star star--off"></span>
+                    </div>
+                  </div>
+                </div>
+                <p>"Fast finance approval and fair pricing on my <em>Audi A4</em>."</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="faq">
+        <div class="container">
+          <h2 class="section__title">FAQ</h2>
+          <details class="faq"><summary><span>Do you offer financing?</span><span class="chev">▾</span></summary><div class="faq__body"><p>Yes, we work with multiple lenders to get you a great rate and quick approvals.</p></div></details>
+          <details class="faq"><summary><span>Can I get a pre‑purchase inspection?</span><span class="chev">▾</span></summary><div class="faq__body"><p>Absolutely. You can bring a mechanic or request an independent inspection.</p></div></details>
+          <details class="faq"><summary><span>Do vehicles come with warranty?</span><span class="chev">▾</span></summary><div class="faq__body"><p>Most vehicles include a standard warranty with options to extend up to 3 years.</p></div></details>
+          <details class="faq"><summary><span>Do you accept trade‑ins?</span><span class="chev">▾</span></summary><div class="faq__body"><p>Yes. Bring your vehicle details and we will provide a competitive offer.</p></div></details>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container">
+          <h2 class="section__title">Contact Us</h2>
+          <p>Visit our showroom or reach us on phone/WhatsApp. We're open Mon–Sat 9:00–18:00.</p>
+          <div class="map-wrap">
+            <iframe title="Map" src="https://maps.google.com/maps?q=Melbourne%20Australia&t=&z=12&ie=UTF8&iwloc=&output=embed" width="100%" height="320" style="border:0;border-radius:14px" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="blog">
+        <div class="container">
+          <h2 class="section__title">Explore Our Latest Blog Posts</h2>
+          <div class="grid grid--3">
+            <article class="post">
+              <img src="https://images.unsplash.com/photo-1483721310020-03333e577078?q=80&w=1200&auto=format&fit=crop" alt="VW" />
+              <h3>Volkswagen Jetta</h3>
+              <p>Efficient, refined and comfortable for daily driving.</p>
+              <a class="btn btn--ghost" href="#">Read more</a>
+            </article>
+            <article class="post">
+              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop" alt="Ferrari" />
+              <h3>Ferrari F8</h3>
+              <p>A stunning blend of design and performance.</p>
+              <a class="btn btn--ghost" href="#">Read more</a>
+            </article>
+            <article class="post">
+              <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1200&auto=format&fit=crop" alt="Honda" />
+              <h3>Honda CRV</h3>
+              <p>Spacious interior, efficient engine, and modern tech.</p>
+              <a class="btn btn--ghost" href="#">Read more</a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="container footer__grid">
+        <div>
+          <h4>Aus Motors</h4>
+          <p>Find a vehicle, ride and run.</p>
+          <p>📞 0771234567</p>
+          <p>✉️ aus@gmail.com</p>
+          <div class="social-links">
+            <a class="link" href="https://wa.me/61999912345?text=Hi%20Aus%20Motors" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M27.6 18.9c-.5 1.4-2.6 2.6-3.7 2.8-.9.2-2.1.3-3.4-.2-1.8-.7-4.1-1.7-6.9-4.5s-3.8-5.1-4.5-6.9c-.5-1.3-.4-2.5-.2-3.4.2-1.1 1.4-3.2 2.8-3.7.7-.2 1.5-.1 2 .4l1.4 1.4c.4.4.5 1 .3 1.6-.3.8-.7 1.5-1.1 2.1-.3.5-.3 1.1 0 1.6.6 1 1.8 2.7 3.3 4.1 1.4 1.5 3.1 2.7 4.1 3.3.5.3 1.1.3 1.6 0 .6-.4 1.3-.8 2.1-1.1.6-.2 1.2-.1 1.6.3l1.4 1.4c.6.5.7 1.3.5 2z" fill="#25D366"/><path d="M15 3c6.6 0 12 5.4 12 12 0 6.7-5.4 12-12 12-2.1 0-4.1-.6-5.8-1.5L5 27l1.6-4.1C5.6 21.1 5 19.1 5 17 5 10.4 9.4 5 16 5z" stroke="#25D366" stroke-width="2"/></svg>
+              WhatsApp
+            </a>
+            <a class="link" href="https://facebook.com/ausmotors" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="#1877F2"><path d="M22 12.06C22 6.49 17.52 2 11.95 2 6.38 2 1.9 6.49 1.9 12.06c0 5.02 3.66 9.18 8.44 9.96v-7.04H7.9v-2.92h2.44V9.41c0-2.41 1.43-3.74 3.62-3.74 1.05 0 2.15.19 2.15.19v2.36h-1.21c-1.19 0-1.56.74-1.56 1.5v1.8h2.66l-.42 2.92h-2.24v7.04c4.78-.78 8.44-4.94 8.44-9.96z"/></svg>
+              Facebook
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4>Helpful Links</h4>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#support">Support</a></li>
+            <li><a href="#terms">Terms & Conditions</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Subscribe</h4>
+          <form class="subscribe" onsubmit="return false;">
+            <input type="email" placeholder="Email address" aria-label="Email" />
+            <button class="btn btn--primary" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="container footer__bottom">
+        <p>© <span id="year"></span> Aus Motors. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
