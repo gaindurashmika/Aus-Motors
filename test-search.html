@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Test</title>
+</head>
+<body>
+    <h1>Search Test Page</h1>
+    
+    <form id="searchForm">
+        <select id="makeFilter">
+            <option value="">Any make</option>
+        </select>
+        <select id="modelFilter">
+            <option value="">Any model</option>
+        </select>
+        <select id="priceFilter">
+            <option value="">All prices</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+    
+    <div id="vehiclesContainer"></div>
+    
+    <script>
+        // Simple test script
+        class TestSearch {
+            constructor() {
+                this.vehicles = [];
+                this.makes = [];
+                this.init();
+            }
+            
+            async init() {
+                console.log('Test search initializing...');
+                await this.loadData();
+                this.setupEventListeners();
+            }
+            
+            async loadData() {
+                try {
+                    console.log('Loading test data...');
+                    
+                    const vehiclesResponse = await fetch('/api/cars');
+                    this.vehicles = await vehiclesResponse.json();
+                    console.log('Vehicles loaded:', this.vehicles);
+                    
+                    const makesResponse = await fetch('/api/makes');
+                    this.makes = await makesResponse.json();
+                    console.log('Makes loaded:', this.makes);
+                    
+                    this.populateDropdowns();
+                    this.renderVehicles();
+                } catch (error) {
+                    console.error('Error loading test data:', error);
+                }
+            }
+            
+            populateDropdowns() {
+                console.log('Populating dropdowns...');
+                
+                const makeFilter = document.getElementById('makeFilter');
+                if (makeFilter && this.makes.length > 0) {
+                    this.makes.forEach(make => {
+                        const option = document.createElement('option');
+                        option.value = make;
+                        option.textContent = make;
+                        makeFilter.appendChild(option);
+                    });
+                }
+            }
+            
+            setupEventListeners() {
+                const searchForm = document.getElementById('searchForm');
+                console.log('Search form element:', searchForm);
+                
+                if (searchForm) {
+                    searchForm.addEventListener('submit', (e) => {
+                        console.log('Form submitted!');
+                        e.preventDefault();
+                        this.handleSearch();
+                    });
+                }
+            }
+            
+            handleSearch() {
+                console.log('Handling search...');
+                const makeFilter = document.getElementById('makeFilter');
+                const selectedMake = makeFilter.value;
+                console.log('Selected make:', selectedMake);
+                
+                let filteredVehicles = this.vehicles;
+                if (selectedMake) {
+                    filteredVehicles = this.vehicles.filter(v => v.make === selectedMake);
+                }
+                
+                console.log('Filtered vehicles:', filteredVehicles);
+                this.renderFilteredVehicles(filteredVehicles);
+            }
+            
+            renderVehicles() {
+                this.renderFilteredVehicles(this.vehicles);
+            }
+            
+            renderFilteredVehicles(vehicles) {
+                const container = document.getElementById('vehiclesContainer');
+                if (!container) return;
+                
+                container.innerHTML = vehicles.map(vehicle => `
+                    <div style="border: 1px solid #ccc; margin: 10px; padding: 10px;">
+                        <h3>${vehicle.name}</h3>
+                        <p>Make: ${vehicle.make}</p>
+                        <p>Model: ${vehicle.model}</p>
+                        <p>Price: $${vehicle.price}</p>
+                    </div>
+                `).join('');
+            }
+        }
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded, creating test search...');
+            window.testSearch = new TestSearch();
+        });
+    </script>
+</body>
+</html>
